@@ -1,0 +1,42 @@
+{
+  "businessName": "Makason Enterprise 2",
+  "industry": "Fashion and Creative Design",
+  "tone": "creative and approachable",
+  "tagline": "Where Style Meets Nigerian Creativity",
+  "sections": [
+    {
+      "id": "hero",
+      "name": "Hero",
+      "copy": "Welcome to Makason Enterprise 2 – Your Premier Fashion and Creative Design Destination in Ikwuano. We bring your fashion dreams to life with unique designs that celebrate Nigerian style and elegance. From bespoke tailoring to creative fashion solutions, we craft pieces that make you stand out.",
+      "imagePrompt": "A vibrant Nigerian fashion studio showcase with colorful African print fabrics draped elegantly, modern sewing machines, fashion sketches on the wall, and beautiful Nigerian models wearing custom-designed traditional and contemporary outfits, warm natural lighting, professional photography style, located in a bustling Nigerian town setting",
+      "layout": "centered"
+    },
+    {
+      "id": "about",
+      "name": "About Us",
+      "copy": "Makason Enterprise 2 is a leading fashion and creative design business proudly serving Ikwuano and surrounding communities. We specialize in transforming fabric into wearable art, offering custom tailoring, creative fashion design, and style consulting services. Our team combines traditional Nigerian craftsmanship with contemporary design trends to create unique pieces for every occasion – from everyday wear to special events. At Amawom junction, we've built a reputation for quality, attention to detail, and delivering fashion that reflects your personal style and celebrates our rich Nigerian heritage.",
+      "imagePrompt": "Interior of a professional Nigerian fashion design studio with rolls of vibrant African fabrics, ankara prints, lace materials, a modern cutting table with patterns, dress forms displaying custom garments, natural lighting through large windows, showing the creative workspace of skilled Nigerian designers",
+      "layout": "split"
+    },
+    {
+      "id": "services",
+      "name": "Our Services",
+      "copy": "**Custom Tailoring & Alterations**: Perfect fit guaranteed for all your garments, from native wear to corporate attire.\n\n**Bespoke Fashion Design**: Unique, made-to-order pieces designed specifically for you – traditional attire, contemporary outfits, and occasion wear.\n\n**Creative Style Consulting**: Professional advice on fabrics, colors, styles, and trends that complement your personality and body type.\n\n**Bridal & Special Occasion Wear**: Stunning designs for weddings, traditional ceremonies, parties, and milestone celebrations.\n\n**Corporate & Uniform Design**: Professional attire solutions for businesses, organizations, and groups.\n\n**Fabric Selection & Sourcing**: Access to quality fabrics including ankara, lace, silk, and premium materials.",
+      "imagePrompt": "A collage-style display showing various fashion services: close-up of hands sewing intricate details on Nigerian traditional wear, colorful ankara fabrics being measured and cut, elegant bridal wear on display, professional tailoring in progress, fashion sketches and swatches, all in a bright, organized Nigerian design studio",
+      "layout": "grid"
+    },
+    {
+      "id": "contact",
+      "name": "Visit Our Studio",
+      "copy": "Ready to transform your wardrobe? Visit Makason Enterprise 2 at Amawom junction in Ikwuano or reach out to discuss your fashion needs. We're here to bring your style vision to life with quality craftsmanship and creative excellence. Walk-ins welcome, or call ahead to schedule a consultation.\n\nAmawom Junction, Ikwuano, Abia State, Nigeria\n\nCall or WhatsApp: 0806 639 8623\n\nBusiness Hours: Monday - Saturday, 9:00 AM - 6:00 PM",
+      "imagePrompt": "Welcoming exterior view of a Nigerian fashion boutique at a busy junction, colorful storefront with fashion displays in the window, people walking by, vibrant street scene in Ikwuano, clear signage, inviting entrance, typical Nigerian commercial area atmosphere, daytime photography",
+      "layout": "centered"
+    }
+  ],
+  "contact": {
+    "phone": "0806 639 8623",
+    "email": "",
+    "address": "Amawom Junction, Ikwuano, Abia State, Nigeria",
+    "whatsapp": "https://wa.me/2348066398623"
+  }
+}
