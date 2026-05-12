@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makason Enterprise 2 – Where Style Meets Nigerian Creativity</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,300;0,400;0,600;1,300&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #170a2d;
+            --color-accent: #cc5e9c;
+            --color-bg: #FBF7FA;
+            --color-text: #1A0828;
+            --color-surface: #1f0d30;
+            --color-secondary-accent: #bc9074;
+            --font-display: 'Josefin Slab', serif;
+            --font-body: 'Lato', sans-serif;
+            --border-radius: 24px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(251, 247, 250, 0.92);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-text);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-accent);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 3px;
+            background: var(--color-text);
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 70px;
+            right: -100%;
+            width: 300px;
+            height: calc(100vh - 70px);
+            background: var(--color-bg);
+            box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+            z-index: 999;
+            padding: 2rem;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+        }
+
+        .mobile-menu ul li {
+            margin-bottom: 1.5rem;
+        }
+
+        .mobile-menu ul a {
+            text-decoration: none;
+            color: var(--color-text);
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            display: block;
+            padding: 0.5rem 0;
+        }
+
+        .mobile-menu ul a:hover {
+            color: var(--color-accent);
+        }
+
+        /* Hero Section */
+        #hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+            animation: fadeUp 0.6s ease forwards;
+        }
+
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            padding: 2rem;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .hero-tagline {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            margin-bottom: 1rem;
+            color: var(--color-accent);
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        .hero-content p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: var(--color-accent);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(204, 94, 156, 0.3);
+        }
+
+        .cta-button:hover {
+            background: #d46fab;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(204, 94, 156, 0.4);
+        }
+
+        /* About Section */
+        #about {
+            padding: 80px 2rem;
+            animation: fadeUp 0.6s ease forwards;
+            animation-delay: 0.1s;
+        }
+
+        .about-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .about-image-wrapper img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .about-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--color-text);
+        }
+
+        /* Services Section */
+        #services {
+            padding: 80px 2rem;
+            background: linear-gradient(135deg, rgba(23, 10, 45, 0.03) 0%, rgba(204, 94, 156, 0.03) 100%);
+            animation: fadeUp 0.6s ease forwards;
+            animation-delay: 0.2s;
+        }
+
+        .services-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .services-container h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--color-primary);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(204, 94, 156, 0.15);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--color-text);
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 80px 2rem;
+            animation: fadeUp 0.6s ease forwards;
+            animation-delay: 0.3s;
+            position: relative;
+        }
+
+        .contact-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .contact-image-wrapper {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .contact-image-wrapper img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .contact-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-content p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            margin-bottom: 2rem;
+            color: var(--color-text);
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+        }
+
+        .contact-item a {
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--color-accent);
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn.phone {
+            background: var(--color-primary);
+            color: white;
+        }
+
+        .contact-btn.phone:hover {
+            background: var(--color-surface);
+            transform: translateY(-2px);
+        }
+
+        .contact-btn.whatsapp {
+            background: #25D366;
+            color: white;
+        }
+
+        .contact-btn.whatsapp:hover {
+            background: #20BA5A;
+            transform: translateY(-2px);
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-float::before {
+            content: "💬";
+            font-size: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-primary);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            font-size: 0.95rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            #hero {
+                min-height: 90vh;
+            }
+
+            .about-container,
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-image-wrapper img,
+            .contact-image-wrapper img {
+                height: 400px;
+            }
+
+            #about,
+            #services,
+            #contact {
+                padding: 48px 1.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+            }
+
+            .contact-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0;
+            }
+
+            .hero-content {
+                padding: 1.5rem;
+            }
+
+            .service-card {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">Makason Enterprise 2</a>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="mobile-menu">
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="hero">
+        <img src="https://images.pexels.com/photos/35073808/pexels-photo-35073808.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Makason Enterprise 2 Fashion Studio" class="hero-image">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Makason Enterprise 2</h1>
+            <p class="hero-tagline">Where Style Meets Nigerian Creativity</p>
+            <p>Welcome to Makason Enterprise 2 – Your Premier Fashion and Creative Design Destination in Ikwuano. We bring your fashion dreams to life with unique designs that celebrate Nigerian style and elegance. From bespoke tailoring to creative fashion solutions, we craft pieces that make you stand out.</p>
+            <a href="#contact" class="cta-button">Visit Our Studio</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="about-container">
+            <div class="about-image-wrapper">
+                <img src="https://images.pexels.com/photos/32668004/pexels-photo-32668004.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Makason Enterprise 2 Studio Interior">
+            </div>
+            <div class="about-content">
+                <h2>About Us</h2>
+                <p>Makason Enterprise 2 is a leading fashion and creative design business proudly serving Ikwuano and surrounding communities. We specialize in transforming fabric into wearable art, offering custom tailoring, creative fashion design, and style consulting services. Our team combines traditional Nigerian craftsmanship with contemporary design trends to create unique pieces for every occasion – from everyday wear to special events. At Amawom junction, we've built a reputation for quality, attention to detail, and delivering fashion that reflects your personal style and celebrates our rich Nigerian heritage.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="services-container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Custom Tailoring & Alterations</h3>
+                    <p>Perfect fit guaranteed for all your garments, from native wear to corporate attire.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Bespoke Fashion Design</h3>
+                    <p>Unique, made-to-order pieces designed specifically for you – traditional attire, contemporary outfits, and occasion wear.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Creative Style Consulting</h3>
+                    <p>Professional advice on fabrics, colors, styles, and trends that complement your personality and body type.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Bridal & Special Occasion Wear</h3>
+                    <p>Stunning designs for weddings, traditional ceremonies, parties, and milestone celebrations.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Corporate & Uniform Design</h3>
+                    <p>Professional attire solutions for businesses, organizations, and groups.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Fabric Selection & Sourcing</h3>
+                    <p>Access to quality fabrics including ankara, lace, silk, and premium materials.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-container">
+            <div class="contact-content">
+                <h2>Visit Our Studio</h2>
+                <p>Ready to transform your wardrobe? Visit Makason Enterprise 2 at Amawom junction in Ikwuano or reach out to discuss your fashion needs. We're here to bring your style vision to life with quality craftsmanship and creative excellence. Walk-ins welcome, or call ahead to schedule a consultation.</p>
+                
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <strong>Address:</strong> Amawom Junction, Ikwuano, Abia State, Nigeria
+                    </div>
+                    <div class="contact-item">
+                        <strong>Phone:</strong> <a href="tel:+2348066398623">0806 639 8623</a>
+                    </div>
+                    <div class="contact-item">
+                        <strong>Business Hours:</strong> Monday - Saturday, 9:00 AM - 6:00 PM
+                    </div>
+                </div>
+
+                <div class="contact-buttons">
+                    <a href="tel:+2348066398623" class="contact-btn phone">Call Us Now</a>
+                    <a href="https://wa.me/2348066398623" target="_blank" class="contact-btn whatsapp">WhatsApp Us</a>
+                </div>
+            </div>
+            <div class="contact-image-wrapper">
+                <img src="https://images.pexels.com/photos/33662816/pexels-photo-33662816.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Makason Enterprise 2 Storefront">
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/2348066398623" target="_blank" class="whatsapp-float" aria-label="WhatsApp"></a>
+
+    <footer>
+        <p>&copy; 2025 Makason Enterprise 2. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenuBtn.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+            });
+
+            // Close mobile menu when clicking a link
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenuBtn.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                });
+            });
+        }
+    </script>
+</body>
+</html>
